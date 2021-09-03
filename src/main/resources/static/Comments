@@ -1,0 +1,2 @@
+1- We create the employee object and define all the fields you want to identify employee with eg id, name, position
+2- Create DAO to implement model functions
