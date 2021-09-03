@@ -1,7 +1,9 @@
 package com.work.workplace.model;
 
+import org.apache.logging.log4j.message.Message;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,8 +25,12 @@ public class EmployeeDAO {
     }
 
     public void saveEmployee(Employee newEmployee) {
+        ResponseMessage message = new ResponseMessage();
+        message.setResponse("New Employee Added");
+        message.setDescription("Updating List");
+        message.setDate(LocalDateTime.now());
         newEmployee.setId(list.size()+1);
-
         list.add(newEmployee);
     }
+
 }

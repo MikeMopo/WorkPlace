@@ -2,6 +2,7 @@ package com.work.workplace.service;
 
 import com.work.workplace.model.Employee;
 import com.work.workplace.model.EmployeeDAO;
+import com.work.workplace.model.ResponseMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +13,7 @@ import java.util.List;
 public class EmployeeController {
     @Autowired
     EmployeeDAO service;
+    ResponseMessage message;
 
     @GetMapping("/employees")
      public List<Employee> getAll(){
@@ -26,7 +28,8 @@ public class EmployeeController {
 
     }
     @PostMapping("/employees/newuser")
-    public void saveEmployee(@RequestBody Employee newEmployee){
+    public ResponseMessage saveEmployee(@RequestBody Employee newEmployee){
         service.saveEmployee(newEmployee);
+        return message;
     }
 }
