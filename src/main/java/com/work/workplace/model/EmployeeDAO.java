@@ -21,4 +21,10 @@ public class EmployeeDAO {
     public Employee getEmployeeById(int id) {
         return list.stream().filter(emp-> emp.getId()==id).findAny().orElse(null);
     }
+
+    public void saveEmployee(Employee newEmployee) {
+        newEmployee.setId(list.size()+1);
+
+        list.add(newEmployee);
+    }
 }
